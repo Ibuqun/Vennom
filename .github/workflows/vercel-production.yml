@@ -30,4 +30,10 @@ jobs:
         run: npx vercel build --prod --token=${{ secrets.VERCEL_TOKEN }}
 
       - name: Deploy to Vercel (Production)
-        run: npx vercel deploy --prebuilt --prod --yes --token=${{ secrets.VERCEL_TOKEN }}
+        id: deploy
+        run: |
+          DEPLOYMENT_URL=$(npx vercel deploy --prebuilt --prod --yes --token=${{ secrets.VERCEL_TOKEN }} | tail -n 1)
+          echo "deployment_url=$DEPLOYMENT_URL" >> "$GITHUB_OUTPUT"
+
+      - name: Assign Stable Production Alias
+        run: npx vercel alias set ${{ steps.deploy.outputs.deployment_url }} vennom-live-ibuqun.vercel.app --token=${{ secrets.VERCEL_TOKEN }}
