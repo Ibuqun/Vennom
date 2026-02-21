@@ -39,7 +39,7 @@
     overflow: auto;
     border: 1px solid var(--border);
     border-radius: 0.5rem;
-    background: rgba(9, 9, 16, 0.85);
+    background: var(--control-bg);
   }
   .spacer {
     position: relative;
@@ -54,7 +54,7 @@
     display: flex;
     align-items: center;
     padding: 0 0.75rem;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+    border-bottom: 1px solid var(--row-divider);
     font-family: var(--font-mono);
     font-size: 0.88rem;
   }

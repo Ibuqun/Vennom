@@ -44,10 +44,10 @@
     display: flex;
     align-items: center;
     gap: 0.5rem;
-    background: rgba(15, 15, 24, 0.95);
+    background: var(--toast-bg);
     border: 1px solid rgba(14, 165, 165, 0.45);
     box-shadow: 0 0 14px rgba(14, 165, 165, 0.25);
-    color: #f5f7ff;
+    color: var(--toast-text);
     padding: 0.65rem 0.8rem;
     border-radius: 0.45rem;
   }

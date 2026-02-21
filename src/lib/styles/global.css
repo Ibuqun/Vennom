@@ -11,6 +11,16 @@
   --hover-glow: rgba(14, 165, 165, 0.34);
   --bg-gradient-a: rgba(14, 165, 165, 0.24);
   --bg-gradient-b: rgba(132, 204, 22, 0.16);
+  --control-bg: #0b1116;
+  --overlay: rgba(2, 2, 8, 0.78);
+  --tooltip-bg: rgba(0, 0, 0, 0.72);
+  --toast-bg: rgba(12, 18, 24, 0.95);
+  --toast-text: #f5f7ff;
+  --progress-track: rgba(255, 255, 255, 0.12);
+  --venn-text: #e8eef2;
+  --privacy-text: #86efac;
+  --warning: #f59e0b;
+  --row-divider: rgba(255, 255, 255, 0.07);
   --font-head: 'Space Grotesk', system-ui;
   --font-body: Inter, system-ui;
   --font-mono: 'IBM Plex Mono', ui-monospace;
@@ -29,6 +39,16 @@ html[data-theme='light'] {
   --hover-glow: rgba(15, 118, 110, 0.2);
   --bg-gradient-a: rgba(15, 118, 110, 0.14);
   --bg-gradient-b: rgba(77, 124, 15, 0.12);
+  --control-bg: #ffffff;
+  --overlay: rgba(19, 33, 46, 0.38);
+  --tooltip-bg: rgba(15, 23, 32, 0.9);
+  --toast-bg: #ffffff;
+  --toast-text: #0f1720;
+  --progress-track: rgba(15, 118, 110, 0.16);
+  --venn-text: #10202a;
+  --privacy-text: #166534;
+  --warning: #b45309;
+  --row-divider: rgba(15, 23, 32, 0.09);
 }
 
 * {

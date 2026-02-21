@@ -148,7 +148,7 @@
     cursor: pointer;
   }
   text {
-    fill: #f3f4f6;
+    fill: var(--venn-text);
     font-size: 14px;
     font-family: var(--font-mono);
     text-anchor: middle;
@@ -170,7 +170,7 @@
     right: 0.8rem;
     font-family: var(--font-mono);
     font-size: 0.82rem;
-    background: rgba(0, 0, 0, 0.7);
+    background: var(--tooltip-bg);
     border: 1px solid var(--border);
     border-radius: 0.5rem;
     padding: 0.4rem 0.6rem;

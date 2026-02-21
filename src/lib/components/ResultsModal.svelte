@@ -94,7 +94,7 @@
   .backdrop {
     position: fixed;
     inset: 0;
-    background: rgba(2, 2, 8, 0.8);
+    background: var(--overlay);
     z-index: 40;
     border: 0;
     padding: 0;

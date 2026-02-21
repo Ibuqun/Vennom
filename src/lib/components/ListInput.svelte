@@ -158,7 +158,7 @@
     width: 100%;
     height: 220px;
     resize: vertical;
-    background: rgba(6, 6, 11, 0.9);
+    background: var(--control-bg);
     color: var(--text);
     border: 1px solid var(--border);
     border-radius: 0.45rem;
@@ -176,7 +176,7 @@
     font-family: var(--font-mono);
   }
   .warning {
-    color: #f59e0b;
+    color: var(--warning);
   }
   .toolbar {
     display: flex;

@@ -380,7 +380,7 @@
   }
   .privacy {
     margin-top: 0.7rem;
-    color: #86efac;
+    color: var(--privacy-text);
     font-family: var(--font-mono);
     display: inline-flex;
     align-items: center;
@@ -429,7 +429,7 @@
     border: 1px solid var(--border);
     border-radius: 0.45rem;
     padding: 0.42rem 0.55rem;
-    background: #090910;
+    background: var(--control-bg);
   }
   .results-head {
     display: grid;
@@ -467,7 +467,7 @@
     height: 10px;
     border-radius: 999px;
     overflow: hidden;
-    background: rgba(255, 255, 255, 0.1);
+    background: var(--progress-track);
   }
   .bar span {
     display: block;
