@@ -1,0 +1,17 @@
+{
+  "name": "Vennom",
+  "short_name": "Vennom",
+  "description": "Privacy-first list comparison with interactive Venn diagrams.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0a0a0f",
+  "theme_color": "#8b5cf6",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "512x512",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

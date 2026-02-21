@@ -1,0 +1,81 @@
+:root {
+  --bg: #090c10;
+  --surface: #0f151a;
+  --surface-2: #122027;
+  --text: #f4f4f5;
+  --text-dim: #a5a5b4;
+  --accent: #0ea5a5;
+  --accent-2: #84cc16;
+  --border: rgba(14, 165, 165, 0.36);
+  --button-bg: #122027;
+  --hover-glow: rgba(14, 165, 165, 0.34);
+  --bg-gradient-a: rgba(14, 165, 165, 0.24);
+  --bg-gradient-b: rgba(132, 204, 22, 0.16);
+  --font-head: 'Space Grotesk', system-ui;
+  --font-body: Inter, system-ui;
+  --font-mono: 'IBM Plex Mono', ui-monospace;
+}
+
+html[data-theme='light'] {
+  --bg: #edf4f6;
+  --surface: #ffffff;
+  --surface-2: #f5fbfc;
+  --text: #0f1720;
+  --text-dim: #4b5563;
+  --accent: #0f766e;
+  --accent-2: #4d7c0f;
+  --border: rgba(15, 118, 110, 0.3);
+  --button-bg: #eef7f8;
+  --hover-glow: rgba(15, 118, 110, 0.2);
+  --bg-gradient-a: rgba(15, 118, 110, 0.14);
+  --bg-gradient-b: rgba(77, 124, 15, 0.12);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  background: radial-gradient(circle at 15% -10%, var(--bg-gradient-a), transparent 40%),
+    radial-gradient(circle at 90% 15%, var(--bg-gradient-b), transparent 35%), var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+}
+
+a {
+  color: inherit;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
+  border: 1px solid var(--border);
+  border-radius: 0.45rem;
+  background: var(--button-bg);
+  padding: 0.42rem 0.65rem;
+}
+
+button:hover {
+  box-shadow: 0 0 14px var(--hover-glow);
+}
+
+.skip-link {
+  position: absolute;
+  left: -999px;
+}
+
+.skip-link:focus {
+  left: 1rem;
+  top: 1rem;
+  background: #000;
+  padding: 0.5rem;
+}
