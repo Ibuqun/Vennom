@@ -48,6 +48,7 @@
 
   let vennRef = $state<HTMLElement | null>(null);
   let inactivityTimeout: ReturnType<typeof setTimeout> | null = null;
+  const currentYear = new Date().getFullYear();
   const sampleA = ['apple', 'banana', 'kiwi', 'dragonfruit', 'pear', 'orange', 'grape'].join('\n');
   const sampleB = ['banana', 'kiwi', 'orange', 'mango', 'papaya', 'grape', 'melon'].join('\n');
 
@@ -221,11 +222,11 @@
       <button
         type="button"
         class="theme-toggle"
-        aria-label="Toggle light and dark mode"
+        aria-label={preferences.theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'}
+        title={preferences.theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'}
         onclick={() => (preferences.theme = preferences.theme === 'dark' ? 'light' : 'dark')}
       >
         {#if preferences.theme === 'dark'}<MoonIcon size={14} />{:else}<SunIcon size={14} />{/if}
-        <span>{preferences.theme === 'dark' ? 'Dark' : 'Light'} mode</span>
       </button>
       <label><input type="checkbox" bind:checked={preferences.privacyMode} /> Privacy Mode</label>
       <label><input type="checkbox" bind:checked={preferences.allowPersistence} /> Save prefs locally</label>
@@ -336,6 +337,10 @@
       </section>
     {/if}
   </section>
+
+  <footer class="site-footer">
+    <p>© {currentYear} Vennom. All rights reserved.</p>
+  </footer>
 </main>
 
 <ResultsModal
@@ -396,7 +401,11 @@
   .theme-toggle {
     display: inline-flex;
     align-items: center;
-    gap: 0.4rem;
+    justify-content: center;
+    width: 2rem;
+    height: 2rem;
+    padding: 0;
+    border-radius: 999px;
   }
   .quick-status {
     display: flex;
@@ -499,6 +508,16 @@
   .breakdown-grid p {
     margin: 0.2rem 0;
     font-family: var(--font-mono);
+  }
+  .site-footer {
+    text-align: center;
+    padding: 0.35rem 0 0.15rem;
+  }
+  .site-footer p {
+    margin: 0;
+    font-size: 0.78rem;
+    font-family: var(--font-mono);
+    color: var(--text-dim);
   }
 
   @media print {
