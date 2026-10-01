@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "vite dev",
     "build": "vite build",
+    "deploy:cloudflare": "npm run build && wrangler deploy --env-file /dev/null",
     "preview": "vite preview",
     "check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
     "lint": "eslint .",
@@ -13,14 +14,14 @@
     "test": "npm run test:unit && npm run test:e2e",
     "test:unit": "vitest run --coverage",
     "test:e2e": "playwright test",
-    "test:visual": "playwright test --config playwright.visual.config.ts --update-snapshots"
+    "test:visual": "playwright test --config playwright.visual.config.ts --update-snapshots",
+    "check:worker": "tsc --noEmit -p tsconfig.worker.json"
   },
   "devDependencies": {
     "@playwright/test": "^1.56.1",
     "@sveltejs/adapter-static": "^3.0.10",
     "@sveltejs/kit": "^2.48.5",
     "@sveltejs/vite-plugin-svelte": "^6.2.1",
-    "@tsconfig/svelte": "^5.0.6",
     "@types/node": "^24.10.1",
     "@typescript-eslint/eslint-plugin": "^8.46.2",
     "@typescript-eslint/parser": "^8.46.2",
@@ -37,7 +38,8 @@
     "typescript": "~5.9.3",
     "vite": "^7.3.1",
     "vite-plugin-pwa": "^1.1.0",
-    "vitest": "^4.0.8"
+    "vitest": "^4.0.8",
+    "wrangler": "^4.120.0"
   },
   "dependencies": {
     "comlink": "^4.4.2",

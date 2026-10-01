@@ -1,0 +1,28 @@
+{
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  "name": "vennom-tools-router",
+  "main": "workers/vennom-router.ts",
+  "compatibility_date": "2026-08-08",
+  "compatibility_flags": ["nodejs_compat"],
+  "workers_dev": false,
+  "routes": [
+    {
+      "pattern": "tools.ibukuntaiwo.com/v*",
+      "zone_name": "ibukuntaiwo.com"
+    },
+    {
+      "pattern": "tools.ibukuntaiwo.com/V*",
+      "zone_name": "ibukuntaiwo.com"
+    }
+  ],
+  "assets": {
+    "directory": "./build",
+    "binding": "ASSETS",
+    "run_worker_first": true,
+    "not_found_handling": "single-page-application"
+  },
+  "observability": {
+    "enabled": true,
+    "head_sampling_rate": 0.1
+  }
+}

@@ -41,10 +41,6 @@ export function splitItems(raw: string, delimiter: DelimiterMode): string[] {
     .filter(Boolean);
 }
 
-export function estimateItemCount(raw: string, delimiter: DelimiterMode): number {
-  return splitItems(raw, delimiter).length;
-}
-
 export function detectLongLines(raw: string, threshold = 10000): number {
   return raw.split(/\r?\n/).filter((line) => line.length > threshold).length;
 }

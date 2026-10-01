@@ -6,7 +6,7 @@
   import PlusIcon from '$lib/icons/CheckIcon.svelte';
   import MinusIcon from '$lib/icons/CloseIcon.svelte';
   import type { DelimiterMode } from '$lib/utils/parsers';
-  import { detectLongLines, estimateItemCount, parseFileContent, parseUploadedFile } from '$lib/utils/parsers';
+  import { detectLongLines, parseFileContent, parseUploadedFile, splitItems } from '$lib/utils/parsers';
 
   let {
     lists = [],
@@ -41,7 +41,7 @@
   const listStats = $derived(
     lists.map((list) => ({
       chars: list.length,
-      items: estimateItemCount(list, delimiter),
+      items: splitItems(list, delimiter).length,
       longLines: detectLongLines(list)
     }))
   );

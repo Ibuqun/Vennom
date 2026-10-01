@@ -12,7 +12,6 @@
   import DownloadIcon from '$lib/icons/DownloadIcon.svelte';
   import VennDiagramIcon from '$lib/icons/VennDiagramIcon.svelte';
   import ShareIcon from '$lib/icons/ArrowRightIcon.svelte';
-  import { nextId } from '$lib/utils/id-generator';
   import { compareWithWorker, cleanupWorker } from '$lib/workers/worker-client';
   import { applyRegexFilter, splitItems, type DelimiterMode } from '$lib/utils/parsers';
   import { buildShareUrl, decodeSharePayload, downloadJson, exportNodeToPng } from '$lib/utils/exporters';
@@ -45,6 +44,7 @@
 
   let modal = $state({ open: false, title: '', items: [] as string[] });
   let toasts = $state<ToastItem[]>([]);
+  let toastSeed = 0;
 
   let vennRef = $state<HTMLElement | null>(null);
   let inactivityTimeout: ReturnType<typeof setTimeout> | null = null;
@@ -53,7 +53,8 @@
   const sampleB = ['banana', 'kiwi', 'orange', 'mango', 'papaya', 'grape', 'melon'].join('\n');
 
   function toast(message: string, type: ToastItem['type'] = 'info') {
-    const id = nextId('toast');
+    toastSeed += 1;
+    const id = `toast-${toastSeed}`;
     toasts = [...toasts, { id, message, type }];
     setTimeout(() => {
       toasts = toasts.filter((t) => t.id !== id);

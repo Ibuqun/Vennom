@@ -2,6 +2,8 @@
 
 Vennom is a privacy-first, browser-only web app for comparing lists with interactive Venn diagrams.
 
+Production: [https://tools.ibukuntaiwo.com/vennom/](https://tools.ibukuntaiwo.com/vennom/)
+
 ## Privacy Policy
 
 - 100% client-side processing (no backend, no external APIs).
@@ -41,13 +43,20 @@ npm run build
 npm run preview
 ```
 
-## Deploy (Cloudflare Pages)
+## Deploy (Cloudflare Workers)
 
-1. Push repository to Git provider.
-2. In Cloudflare Pages create a new project from repo.
-3. Build command: `npm run build`
-4. Build output directory: `build`
-5. Enable `npm ci` in install step.
+The static SvelteKit build is deployed with a small Cloudflare Worker. It serves
+Vennom directly from Cloudflare's static-assets network, normalizes any casing
+of the `vennom` URL segment, and lets unrelated tools continue to their existing
+origin.
+
+```bash
+npm run deploy:cloudflare
+```
+
+The Worker uses the more-specific `/v*` and `/V*` routes so it can coexist with
+the existing `tools.ibukuntaiwo.com/*` router. Fingerprinted app assets receive
+immutable one-year browser caching; HTML and the service worker revalidate.
 
 ## Architecture Decisions
 
